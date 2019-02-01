@@ -1,4 +1,11 @@
-# **tmux**
+---
+layout: post
+title: tmux
+date: 2019-02-01
+category: command
+tags: multiplexing, the terminal
+status: published
+---
 
 tmux is what's known as a "terminal multiplexer," hence the name "tmux." tmux [isn't the only terminal multiplexer](https://en.wikipedia.org/wiki/Terminal_multiplexer) but it seems to be pretty widely adopted.
 
@@ -10,7 +17,7 @@ tmux has two features that make it a very powerful tool for extensive command-li
 
     Here's an example of tmux running in one window with four panes. Note that each prompt is in a different working directory:
 
-    ![tmux with four panes](../images/tmux-four-panes.png)
+    ![tmux with four panes](/images/tmux-four-panes.png)
 
 2. tmux allows you to run commands on a remote machine that will continue to run even after you disconnect from that machine.
 
@@ -40,7 +47,7 @@ To start a tmux session, simply type:
 
 This will launch a new tmux session. You will see a clear terminal screen with a status bar at the bottom. 
 
-![tmux status bar](../images/tmux-status-bar.png)
+![tmux status bar](/images/tmux-status-bar.png)
 
 Unless you are running multiple windows and sessions, you don't really have to pay attention to the status bar, but it's there if you need it.
 
@@ -56,7 +63,7 @@ and will be returned to your command prompt as it appeared before you launched t
 
 Before and after a tmux session
 
-![tmux start, exit](../images/tmux-start-exit.png)
+![tmux start, exit](/images/tmux-start-exit.png)
 
 ####Detaching and attaching
 
@@ -89,7 +96,7 @@ Detaching looks a lot like exiting: tmux will output
 
 to the terminal and you will be returned to the window as it appeared before you entered the tmux session.
 
-![tmux detached](../images/tmux-detached.png)
+![tmux detached](/images/tmux-detached.png)
 
 To reattach to a session, type:
 
@@ -105,7 +112,7 @@ First, get a list of running sessions:
 
     $ tmux list-sessions
 
-![tmux list-sessions](../images/tmux-list-sessions.png)
+![tmux list-sessions](/images/tmux-list-sessions.png)
 
 The number on the far left represents the number of each session. This numbering starts from 0 and increments for each session you start while another session is running. If you exit all sessions and then start tmux again, the numbering will start from 0 again.
 
@@ -133,7 +140,7 @@ These shortcuts correspond to the following commands:
 
 Example: this window was split vertically and then the lower pane was split horzontally
 
-![tmux split example](../images/tmux-split-example.png)
+![tmux split example](/images/tmux-split-example.png)
 
 ####Switching between panes
 
@@ -169,7 +176,7 @@ To enable basic scrolling functionality, use the following keyboard shortcut:
 
 This puts the currently active tmux pane into scrolling mode. The other tmux panes will not be affected. While in scrolling mode, you can use the arrow keys to scroll up and down. A small box on the upper right of the pane indicates your current position and how many lines you can scroll back.
 
-![tmux scrolling example](../images/tmux-scrolling.png)
+![tmux scrolling example](/images/tmux-scrolling.png)
 
 To quit from scrolling mode, just press [q] to be returned to the prompt.
 
@@ -181,6 +188,6 @@ These basic commands should be enough to get you started. But one of the nice th
 
 I did this a lot when I was starting to use tmux and still do it when looking up advanced features:
 
-![tmux man page in pane](../images/tmux-man-pane.png)
+![tmux man page in pane](/images/tmux-man-pane.png)
 
 And of course you can view any manual page in any pane. If you become comfortable enough with tmux, you can use this strategy to work with any command. Sometimes it's easier to have the manual page in front of you instead of in another window.
