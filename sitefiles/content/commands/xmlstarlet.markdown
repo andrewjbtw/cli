@@ -1,4 +1,14 @@
-xmlstarlet 
+---
+layout: post
+title: xmlstarlet
+date: 2019-02-09
+category: commdand
+status: draft
+---
+
+post body text
+
+[link text](link-URL "alt text")xmlstarlet 
 
 xmlstarlet [options...] {command} [cmd-options...]
 
@@ -44,3 +54,4 @@ Need to review:
 
  - XML terminology
  - XSL
+
