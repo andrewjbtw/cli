@@ -1,8 +1,8 @@
 ---
 layout: page
-title: [title]
-date: [date]
-category: [category]
+title: git
+date: 2019-03-20
+category: command
 status: draft
 ---
 
