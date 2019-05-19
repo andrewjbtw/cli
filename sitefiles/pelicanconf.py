@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 AUTHOR = u'Andrew Berger'
 SITENAME = u'notes on using the command line'
-SITEURL = ''
+SITEURL = 'https://cli.suppliedtitle.org'
 
 PATH = 'content'
 
