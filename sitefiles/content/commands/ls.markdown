@@ -2,8 +2,8 @@
 layout: post
 title: ls
 date: 2019-02-09
-category: command
-status: draft
+category: commands
+status: published
 ---
 
 **ls** lists files (and folders, symlinks, etc) 

@@ -2,7 +2,7 @@
 layout: post
 title: tmux
 date: 2019-02-01
-category: command
+category: commands
 tags: multiplexing, the terminal
 status: published
 ---
