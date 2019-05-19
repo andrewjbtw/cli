@@ -12,7 +12,9 @@ Run with no options, **ls** will list the files in the current directory, laid o
 
 By default, it lists the files in your current working directory but it can list them everywhere. It's a pretty simple command, but essential to getting around the filesystem from the terminal.
 
-
+```bash
+	$ ls -lAh
+```
 
  
 

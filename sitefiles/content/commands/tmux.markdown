@@ -30,9 +30,9 @@ tmux has two features that make it a very powerful tool for extensive command-li
 ####Installing
 
 On Ubuntu, you can install tmux from the repositories:
-
+```bash
     $ sudo apt install tmux
-
+```
 It appears to be widely available in packaged form on other Linux distributions as well. On some server distributions it may come pre-installed.
 
 *Mac OSX note:* it appears that a different terminal multiplexer, screen, is installed by default. I've used it a few times and it looks like it has many of the same features as tmux. There's apparently a tmux vs. screen debate that's like the vim vs. emacs rivalry, which is to say, I've tried to avoid the arguments completely. If I ever use screen enough times, I'll write up a page for that too. 
@@ -42,9 +42,9 @@ If you want to use tmux on OSX, you can install via homebrew, and probably also 
 ####Starting and ending a session
 
 To start a tmux session, simply type:
-
+```bash
     $ tmux
-
+```
 This will launch a new tmux session. You will see a clear terminal screen with a status bar at the bottom. 
 
 ![tmux status bar](/images/tmux-status-bar.png)
@@ -52,13 +52,13 @@ This will launch a new tmux session. You will see a clear terminal screen with a
 Unless you are running multiple windows and sessions, you don't really have to pay attention to the status bar, but it's there if you need it.
 
 To quit from your session, simply type:
-
+```bash
     $ exit
-
+```
 tmux will output
-
+```bash
     [exited]
-
+```
 and will be returned to your command prompt as it appeared before you launched the tmux session.
 
 Before and after a tmux session
@@ -87,21 +87,21 @@ Exiting the last running tmux window or pane ends a tmux session. If you want to
 2. Type in a tmux command
 
     Alternatively, you can control tmux by typing commands into the terminal and pressing enter. To detach, you would simply use a prompt within the tmux session and type 
-
-        $ tmux detach
-
+```bash
+    $ tmux detach
+```
 Detaching looks a lot like exiting: tmux will output 
-
+```bash
     [detached]
-
+```
 to the terminal and you will be returned to the window as it appeared before you entered the tmux session.
 
 ![tmux detached](/images/tmux-detached.png)
 
 To reattach to a session, type:
-
+```bash
     $ tmux attach
-
+```
 If you are running only one tmux session, this will re-attach you to that session. It will look essentially the same as if you had never detached from it, save for possible output produced by any commands you left running while detached.
 
 If you are running multiple sessions, tmux will "guess" which session to reattach. I think it reattaches to the session you were last using, but I'm not sure. This is probably configurable.
@@ -109,9 +109,9 @@ If you are running multiple sessions, tmux will "guess" which session to reattac
 If you are running multiple sessions and want to attach to a specific one, you can choose to do so.
 
 First, get a list of running sessions:
-
+```bash
     $ tmux list-sessions
-
+```
 ![tmux list-sessions](/images/tmux-list-sessions.png)
 
 The number on the far left represents the number of each session. This numbering starts from 0 and increments for each session you start while another session is running. If you exit all sessions and then start tmux again, the numbering will start from 0 again.
@@ -119,9 +119,9 @@ The number on the far left represents the number of each session. This numbering
 It's also possible to name sessions; until I add that to this document, check out the tmux manual page for details.
 
 Once you've chosen a session to reattach, you can specify it on the command line using the -t option. This command will attach your terminal to the session numbered "1":
-
+```bash
     $ tmux attach -t 1
-
+```
 ####Splitting into multiple panes
 
 As with detaching from a session, tmux gives you two ways to split a window into multiple panes: using keyboard shortcuts or typing in a command. I recommend learning the keyboard shortcuts first and then learning about the commands.
@@ -134,10 +134,10 @@ The two shortcuts I use most often to split panes are:
  - Split pane horizontally [Ctrl] + [b] ; [percent symbol]
 
 These shortcuts correspond to the following commands:
-
+```bash
     $ tmux split-window # splits window vertically (this is the default)
     $ tmux split-window -h # the -h option specifies a horizontal split
-
+```
 Example: this window was split vertically and then the lower pane was split horzontally
 
 ![tmux split example](/images/tmux-split-example.png)
