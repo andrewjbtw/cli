@@ -3,6 +3,7 @@ layout: post
 title: ls
 date: 2019-05-20
 category: commands
+tags: getting file info
 status: published
 ---
 
