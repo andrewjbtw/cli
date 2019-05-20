@@ -12,6 +12,9 @@ TIMEZONE = 'America/Los_Angeles'
 
 DEFAULT_LANG = u'en'
 
+MENUITEMS_MIDDLE = ( ('introduction', '/'), ('archives', '/archives.html'), ('contact', '/contact.html'), )
+
+#DISPLAY_PAGES_ON_MENU = True
 DISPLAY_CATEGORIES_ON_MENU = False
 USE_FOLDER_AS_CATEGORY = True
 THEME = '../themes/pelican-octopress-theme'
