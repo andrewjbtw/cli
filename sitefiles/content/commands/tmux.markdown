@@ -1,7 +1,7 @@
 ---
 layout: post
 title: tmux
-date: 2019-02-01
+date: 2019-05-21
 category: commands
 tags: multiplexing, the terminal itself
 status: published
@@ -35,7 +35,66 @@ On Ubuntu, you can install tmux from the repositories:
 ```
 It appears to be widely available in packaged form on other Linux distributions as well. On some server distributions it may come pre-installed.
 
-*Mac OSX note:* it appears that a different terminal multiplexer, screen, is installed by default. I've used it a few times and it looks like it has many of the same features as tmux. There's apparently a tmux vs. screen debate that's like the vim vs. emacs rivalry, which is to say, I've tried to avoid the arguments completely. If I ever use screen enough times, I'll write up a page for that too. 
+*Installing without root access*
+
+It's possible to install tmux without root access. The catch is that you have to compile it yourself, and maybe even compile its dependencies. There are many instructions on how to do this online, but the exact steps can depend on what's already available in your environment. In my case, I only had to compile one of tmux's dependencies (libevent, see below).
+
+That said, the steps below have worked for me on an Ubuntu server in a shared hosting environment. I first did this in 2016 and now I can't find the original source for these instructions, so I'm pulling this from my bash history. If I can find the original source, I'll add a link to it, as I didn't work this out myself.
+
+For what it's worth, I recently re-ran this after my hosting provider upgraded to Ubuntu 18.04, so I know it can still work. But I can't guarantee that it will work for you.
+
+First, create directories for installation and gather tmux and its dependencies.
+
+The [tmux page](https://github.com/tmux/tmux "github tmux page") lists the dependencies as both [libevent](http://libevent.org/ "libevent website") and [ncurses](https://invisible-mirror.net/ncurses/ncurses.html "ncurses"). In my web host's environment, I only had to install libevent to get tmux working. They must have already installed ncurses. Note that if you're following along at a later date, it may be worth checking the relevant release pages for newer releases than the ones I use below.
+
+```bash
+mkdir -pv "$HOME"/local # tmux will be installed here
+mkdir -pv "$HOME"/temp # place to put the source releases
+cd "$HOME"/temp
+wget https://github.com/libevent/libevent/releases/download/release-2.1.8-stable/libevent-2.1.8-stable.tar.gz # download libevent source
+wget https://github.com/tmux/tmux/releases/download/2.9/tmux-2.9.tar.gz # download tmux source
+```
+
+Next, compile libevent, using $HOME/local as destination:
+
+```bash
+tar -xvf libevent-2.1.8-stable.tar.gz 
+cd libevent-2.1.8-stable/
+./configure --prefix=$HOME/local
+make
+make install
+```
+
+Now compile tmux, using $HOME/local again:
+
+```bash
+tar -xvf tmux-2.9.tar.gz 
+cd tmux-2.9/
+./configure --prefix=$HOME/local CFLAGS="-I$HOME/local/include" LDFLAGS="-L$HOME/local/lib"
+make
+make install
+```
+At this point, tmux should be installed into "$HOME"/local/bin. Unless you're already using "$HOME"/local/bin for other commands, you'll also need to add that directory to your PATH so that tmux runs when you type just "tmux". 
+
+I added the following lines to "$HOME"/.bash_profile to add to the PATH:
+
+```bash
+if [ -d "$HOME/local/bin" ]
+then
+    PATH="$HOME/local/bin:$PATH"
+    LD_LIBRARY_PATH="$HOME/local/lib"
+fi
+```
+Now re-source ".bash_profile" to make the change take effect:
+```bash
+$ source ~/.bash_profile
+```
+
+Note: I can't remember why I ended up editing .bash_profile for this, instead of .bashrc. The uses of the various .profile, .bash_profile, and .bashrc files are a subject for a different post.
+
+*Mac OSX note* 
+
+It appears that a different terminal multiplexer, screen, is installed by default. I've used it a few times and it looks like it has many of the same features as tmux. There's apparently a tmux vs. screen debate that's like the vim vs. emacs rivalry, which is to say, I've tried to avoid the arguments completely. If I ever use screen enough times, I'll write up a page for that too. 
 
 If you want to use tmux on OSX, you can install via homebrew, and probably also via other methods.
 

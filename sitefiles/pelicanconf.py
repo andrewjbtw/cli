@@ -48,11 +48,13 @@ PAGINATION_PATTERNS = (
     (2, '{base_name}/page/{number}/', '{base_name}/page/{number}/index.html'),
 )
 
-# Blogroll
-#LINKS = (('Pelican', 'http://getpelican.com/'),
-#         ('Python.org', 'http://python.org/'),
-#         ('Jinja2', 'http://jinja.pocoo.org/'),
-#         ('You can modify those links in your config file', '#'),)
+# Links
+LINKS = (('Atom feed for this site', 'https://cli.suppliedtitle.org/feeds/posts.xml'),
+         ('The Linux command line', 'http://linuxcommand.org/tlcl.php'),
+         ('explainshell.com', 'https://explainshell.com/'),
+         ('ffmprovisor', 'https://amiaopensource.github.io/ffmprovisr/'),
+         ('Script Ahoy', 'https://dd388.github.io/crals/'),
+         ('the sourcecaster', 'https://datapraxis.github.io/sourcecaster/'),)
 
 # Social widget
 #SOCIAL = (('You can add links in your config file', '#'),
