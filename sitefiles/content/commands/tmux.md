@@ -31,7 +31,7 @@ tmux has two features that make it a very powerful tool for extensive command-li
 
 On Ubuntu, you can install tmux from the repositories:
 ```bash
-    $ sudo apt install tmux
+    sudo apt install tmux
 ```
 It appears to be widely available in packaged form on other Linux distributions as well. On some server distributions it may come pre-installed.
 
